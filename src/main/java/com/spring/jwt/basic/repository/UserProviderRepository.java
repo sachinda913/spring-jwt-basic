@@ -8,5 +8,7 @@ import com.spring.jwt.basic.entity.UserProvider;
 public interface UserProviderRepository {
 
 	UserProvider save(UserProvider userProvider);
+	
+	UserProvider findById(int id);
 
 }

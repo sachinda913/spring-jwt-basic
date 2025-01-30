@@ -23,4 +23,9 @@ public class UserProviderRepoImpl implements UserProviderRepository{
 		return userProviderCrudRepo.save(userProvider);
 	}
 
+	@Override
+	public UserProvider findById(int id) {
+		return userProviderCrudRepo.findById(id);
+	}
+
 }

@@ -10,5 +10,7 @@ import jakarta.transaction.Transactional;
 public interface UserProviderCrudRepo extends JpaRepository<UserProvider, Integer>{
 
 	UserProvider findUserByUsername(String username);
+	
+	UserProvider findById(int id);
 
 }
