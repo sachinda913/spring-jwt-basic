@@ -8,7 +8,6 @@ A simple Spring Boot application implementing **JWT-based authentication**. It p
 
 ✅ **User Authentication** – Register, login, and secure endpoints using JWT.  
 ✅ **JWT Token Handling** – Generate and validate.  
-✅ **Role-Based Authorization** – Users and Admins have different permissions.  
 ✅ **RESTful API** – Secure API endpoints with authentication.  
 
 ---
@@ -53,22 +52,15 @@ mvn spring-boot:run
 
 | HTTP Method | Endpoint           | Description |
 |------------|-------------------|-------------|
-| `POST` | `/api/auth/register` | Register a new user |
-| `POST` | `/api/auth/login` | Authenticate and get a JWT token |
-| `POST` | `/api/auth/refresh-token` | Refresh JWT token |
-
-### Protected APIs (Require JWT)
-
-| HTTP Method | Endpoint | Description |
-|------------|---------|-------------|
-| `GET` | `/api/users/profile` | Get user details |
-| `GET` | `/api/admin/dashboard` | Admin-only access |
+| `POST` | `/register` | Register a new user |
+| `POST` | `/login` | Authenticate and get a JWT token |
+| `GET` | `/get` | Get sample data to check Authentication is working correctley|
 
 ### How to Test JWT Authentication?
 
 1. **Register a new user:**
    ```json
-   POST /api/auth/register  
+   POST /register  
    {
      "username": "user1",
      "password": "password123"
@@ -77,7 +69,7 @@ mvn spring-boot:run
 
 2. **Login to get a JWT Token:**
    ```json
-   POST /api/auth/login  
+   POST /login  
    {
      "username": "user1",
      "password": "password123"
@@ -86,35 +78,27 @@ mvn spring-boot:run
    ✅ **Response:**
    ```json
    {
-     "accessToken": "eyJhbGciOiJIUzI1...",
-     "refreshToken": "eyJhbGciOiJIUzI2..."
+     "accessToken": "eyJhbGciOiJIUzI1..."
    }
    ```
-
-3. **Access Protected Endpoint:**
-   Add the JWT token in the `Authorization` header:
-   ```http
-   GET /api/users/profile  
-   Authorization: Bearer <JWT_TOKEN>
-   ```
-
----
-
+   
 ## 🔒 Security & JWT Configuration
 
-- The JWT is generated using a **secret key** (`application.properties`):
-  ```properties
-  jwt.secret=your_secret_key
-  jwt.expiration=3600000 # 1 hour in milliseconds
+- The JWT is generated using a **secret key**:
+  ```
+  secret key is a BASE64 encoded key.
+  secret key expiration is 60 * 60 * 10 # 10 hour.
   ```
 - **Spring Security Configuration (`SecurityConfig.java`)**
   - Defines authentication and authorization rules.  
-  - Allows `/api/auth/**` without authentication but secures other endpoints.  
-
+  - Allows `/register and /login` without authentication but secures other endpoints.
+  - only can test with **POSTMAN**
+  - if you want to check using browser uncomment "**formLogin**" in the SecurityConfig file.
 ---
 
 ## 🔗 Contact & Support
 For any issues, feel free to open an issue on GitHub or reach out via email at `sachinda.nirosh@gmail.com`.  
 
 ---
+
 
