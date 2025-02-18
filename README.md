@@ -34,14 +34,14 @@ cd spring-jwt-auth
 Modify `src/main/resources/application.properties`:
 ```properties
 spring.datasource.url=jdbc:mysql://localhost:3306/jwt_demo
-spring.datasource.username=root
+spring.datasource.username=yourusername
 spring.datasource.password=yourpassword
-spring.jpa.hibernate.ddl-auto=update
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 ```
 
 ### Run the Application
 ```sh
-mvn clean install
+mvn clean and install
 mvn spring-boot:run
 ```
 
@@ -113,33 +113,8 @@ mvn spring-boot:run
 
 ---
 
-## 📜 Swagger API Documentation
-
-If Swagger is enabled, access it at:
-```
-http://localhost:8080/swagger-ui/index.html
-```
-
----
-
-## 🤝 Contributing
-
-If you'd like to contribute:
-1. Fork the repo
-2. Create a feature branch (`git checkout -b feature-name`)
-3. Commit changes (`git commit -m "Added new feature"`)
-4. Push and open a Pull Request
-
----
-
-## 📄 License
-
-This project is licensed under the **MIT License**.
-
----
-
 ## 🔗 Contact & Support
-For any issues, feel free to open an issue on GitHub or reach out via email at `your-email@example.com`.  
+For any issues, feel free to open an issue on GitHub or reach out via email at `sachinda.nirosh@gmail.com`.  
 
 ---
 
