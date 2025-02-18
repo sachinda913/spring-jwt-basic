@@ -25,8 +25,7 @@ A simple Spring Boot application implementing **JWT-based authentication**. It p
 
 ### Clone the Repository
 ```sh
-git clone https://github.com/your-username/spring-jwt-auth.git
-cd spring-jwt-auth
+git clone https://github.com/sachinda913/spring-jwt-basic.git
 ```
 
 ### Configure the Database
